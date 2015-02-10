@@ -17,7 +17,7 @@ class newrelic_java_agent::install (
         group  => $appuser,
     }
 
-    httpfile { $install_dir:
+    httpfile { "${install_dir}/newrelic.jar":
         source => $download,
     }
 

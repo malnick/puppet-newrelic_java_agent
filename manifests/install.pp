@@ -8,7 +8,7 @@ class newrelic_java_agent::install (
 ) {
 
     $agent_jar      = "/newrelic-agent-${version}.jar"
-    $download       = "https://download.newrelic.com/newrelic/java-agent/newrelic-agent/${version}/newrelic-agent-${version}.jar",
+    $download       = "https://download.newrelic.com/newrelic/java-agent/newrelic-agent/${version}/newrelic-agent-${version}.jar"
     
     $dirs = ['/opt/newrelic','/opt/newrelic/java']
     file { $dirs:

@@ -19,6 +19,7 @@ class newrelic_java_agent::install (
      exec { "wget_agent": 
         command => "/usr/bin/wget -P ${install_dir}/java ${download} && /bin/mv ${install_dir}/java/newrelic-agent-${version}.jar ${install_dir}/java/newrelic.jar", 
         require => File[$install_dir],
+        creates => "${install_dir}/java/newrelic.jar",
     }
 
 

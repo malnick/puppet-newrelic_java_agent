@@ -15,7 +15,7 @@ define newrelic_java_agent::yml (
 ){
 
     file { "/opt/newrelic/java/${name}.yml":
-        content => template('newrelic_java_agent/newrelic.yml.erb')
+        content => template('newrelic_java_agent/newrelic.yml.erb'),
         mode    => '0644',
         owner   => 'newrelic',
         group   => 'newrelic',

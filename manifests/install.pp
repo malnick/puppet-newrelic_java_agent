@@ -17,13 +17,13 @@ class newrelic_java_agent::install (
         group  => $appuser,
     }
 
-    httpfile { "${install_dir}/newrelic.jar":
-        source  => $download,
+     exec { "wget_agent": 
+        command => "/usr/bin/wget -P ${install_dir}/newrelic.jar ${download}", 
         require => File[$dirs],
     }
 
     exec { 'newrelic_install':
-        command => "/usr/share/java -jar ${install_dir}/newrelic.jar -s ${install_dir} install",
-        require => Httpfile["${install_dir}/newrelic.jar"],
+        command => "/usr/bin/java -jar ${install_dir}/newrelic.jar -s ${install_dir} install",
+        require => Exec['wget_agent'],
     }
 }

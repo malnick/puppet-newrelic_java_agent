@@ -18,11 +18,12 @@ class newrelic_java_agent::install (
     }
 
     httpfile { "${install_dir}/newrelic.jar":
-        source => $download,
+        source  => $download,
+        require => File[$dirs],
     }
 
     exec { 'newrelic_install':
         command => "/usr/share/java -jar ${install_dir}/newrelic.jar -s ${install_dir} install",
-        require => Httpfile[$install_dir],
+        require => Httpfile["${install_dir}/newrelic.jar"],
     }
 }

@@ -17,12 +17,9 @@ class newrelic_java_agent::install (
     }
 
      exec { "wget_agent": 
-        command => "/usr/bin/wget -P ${install_dir}/java ${download}", 
+        command => "/usr/bin/wget -P ${install_dir}/java ${download} && /bin/mv ${install_dir}/java/newrelic-agent-${version}.jar ${install_dir}/java/newrelic.jar", 
         require => File[$install_dir],
     }
 
-    exec { 'newrelic_install':
-        command => "/usr/bin/java -jar ${install_dir}/java/newrelic-agent-${version}.jar -s ${install_dir} install",
-        require => Exec['wget_agent'],
-    }
+
 }

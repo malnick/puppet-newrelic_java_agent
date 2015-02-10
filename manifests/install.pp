@@ -1,7 +1,7 @@
 class newrelic_java_agent::install (
 
     $version        = '3.9.0',
-    $install_dir    = '/opt/newrelic/java'
+    $install_dir    = '/opt/newrelic/java',
     $app_user       = 'newrelic',
     $app_group      = 'newrelic',
 

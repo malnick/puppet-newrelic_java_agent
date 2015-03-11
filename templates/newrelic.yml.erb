@@ -49,8 +49,10 @@ common: &default_settings
   # For example, to report data to"My Application" and "My Application 2" use this:
   # app_name: My Application;My Application 2
   # This setting is required.
-<% if @app_name %>
-  app_name: <%= @app_name-@hostname %>
+<% if @role %>
+  app_name: <%= @app_name %>:<%= @hostname %>-<%= @role %>
+<% elsif @app_name %>
+  app_name: <%= @app_name %>:<%= @hostname %>
 <% else %>
   app_name: Java Application
 <% end %>

@@ -49,12 +49,12 @@ common: &default_settings
   # For example, to report data to"My Application" and "My Application 2" use this:
   # app_name: My Application;My Application 2
   # This setting is required.
-<% if @role %>
-  app_name: <%= @app_name %>:<%= @hostname %>-<%= @role %>
-<% elsif @app_name %>
-  app_name: <%= @app_name %>:<%= @hostname %>
+<% if @app_name %>
+  app_name: <%= @app_name %>
+<% elsif @role %>
+  app_name: <%= @role %>
 <% else %>
-  app_name: Java Application
+  app_name: Undefined Java Application
 <% end %>
 
   # The agent uses its own log file to keep its logging

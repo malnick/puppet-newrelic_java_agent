@@ -1,5 +1,5 @@
 define newrelic_java_agent::yml (
-
+    $service_env            = undef,
     $license_key,
     $enabled                = true,
     $app_name               = $name,

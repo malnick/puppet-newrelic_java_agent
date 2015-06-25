@@ -90,7 +90,7 @@ common: &default_settings
   # Default is 0 (no limit).
   #log_limit_in_kbytes: 0
 <% if @log_limit_in_kbytes %>
-  log_limit_in_kbytes: 0
+  log_limit_in_kbytes: 100 
 <% else %>
   log_limit_in_kbytes: <%= @log_limit_in_kbytes %>
 <% end %>
@@ -99,7 +99,7 @@ common: &default_settings
   # Default is false.
   #log_daily: false
 <% if @log_daily %>
-  log_daily: false
+  log_daily: true
 <% else %>
   log_daily: <%= @log_daily %>
 <% end %>
